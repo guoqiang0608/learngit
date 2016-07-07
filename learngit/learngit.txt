@@ -1,0 +1,77 @@
+Git教程
+
+1.Git简介
+
+	Git是目前世界上最先进的分布式版本控制系统
+	
+	Linux系统的源码就是由Git管理的
+	
+	2008年，GitHub网站上线，为开源项目免费提供Git存储
+	
+	集中式vs分布式：
+	
+		集中式版本控制系统：
+		
+			版本库集中存放在中央服务器。所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。
+			（当你在修改一个文件的时候，别人不能修改？）
+			
+			必须联网才能工作。（取完版本库之后，和上传之前，在本地修改的这个过程是不是不需要联网？）
+			
+		分布式版本控制系统：
+		
+			没有中央服务器。每个人的电脑上都是一个完整的版本库。
+			
+			如何协作：只需将各自的修改推送给对方即可。
+			（感觉很难管理，如何确定哪个才是最终的版本？）
+			在实践中摸索这个问题的答案。
+			
+			不需要联网。
+			
+2.安装Git
+
+	我是在cygwin64上安装git的。安装文件在文件夹内。（不能放excel文件）
+	
+	Windows下要使用很多Linux/Unix的工具时，需要Cygwin这样的模拟环境，Git也一样。
+	
+	安装完成后配置：
+	
+		$ git config --global user.name "Your Name"
+		$ git config --global user.email "email@example.com"
+		
+	注意gitconfig命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。
+	
+3.创建版本库
+
+	版本库又名仓库，英文名repository
+	可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。
+	
+	创建一个版本库：
+	
+		首先，选择一个合适的地方，创建一个空目录
+			$ mkdir learngit
+			$ cd learngit
+			$ pwd
+			/Users/michael/learngit
+		第二步，通过git init命令把这个目录变成Git可以管理的仓库：
+			$ git init
+			Initialized empty Git repository in /Users/michael/learngit/.git/
+		此时，当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的
+		
+	将文件添加到版本库：
+	    
+		版本控制系统管理只能跟踪文本文件的改动。
+		图片、视频这些二进制文件，虽然也能由版本控制系统管理，但没法跟踪文件的变化
+		（Microsoft的Word格式是二进制格式）
+		
+		首先：编写一个文件readme.txt，放到learngit目录下。
+		
+		第一步，用命令git add告诉Git，把文件添加到仓库：
+			$ git add readme.txt
+		第二步，用命令git commit告诉Git，把文件提交到仓库：
+			$ git commit -m "wrote a readme file"
+		
+		
+	
+		
+	
+	
